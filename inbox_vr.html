@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main page</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid" style="background-color:#D8D8D8">
+<div class="row" style="height:950px;">
+<div class="col-md-2"  style="height:800px;background-color:#000000;">
+<a href="" class="btn btn-default" style="width:320px;font-size:20px;text-align:left;"><i class="fa fa-plus" aria-hidden="true"></i>New Mail</a>
+
+<div>
+<a href="" class="btn btn-default" style="margin-top:20px;width:320px;font-size:20px;text-align:left;"><i class="fa fa-user-circle" aria-hidden="true" style="width:50px;"></i>Accounts</a>
+</div>
+<div class="list-group" style="margin-top:20px;">
+<a href="" class="list-group-item" style="background-color:transparent;">Inbox<span class="badge">1320</span></a>
+<a href="" class="list-group-item" style="background-color:transparent;">Starred</a>
+<a href="" class="list-group-item" style="background-color:transparent;">Drafts</a>
+<a href="" class="list-group-item" style="background-color:transparent;">Important</a>
+<a href="" class="list-group-item" style="background-color:transparent;">Spam</a>
+<a href="" class="list-group-item" style="background-color:transparent;">Trash</a>
+</div>
+</div>
+
+<div class="col-md-3"  style="height:800px;background-color:#FFFFFF;">
+<div class="row">
+<div class="col-md-3">
+<img class="img-responsive" src="gplus.jpg">
+</div>
+<div class="col-md-6">
+<a href="compose_vr.html">
+<h4>katya</h4>
+<p>Roll no:91</p><hr>
+</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+<img src="gplus.jpg">
+</div>
+<div class="col-md-6">
+<a href="compose_vr.html">
+<h4>Dinesh</h4>
+<p>Roll no:76</p><hr>
+</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+<img src="gplus.jpg">
+</div>
+<div class="col-md-6">
+<a href="compose_vr.html">
+<h4>Pranita</h4>
+<p>Roll no:104</p><hr>
+</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+<img src="gplus.jpg">
+</div>
+<div class="col-md-6">
+<a href="compose_vr.html">
+<h4>Sindhu</h4>
+<p>Roll no:98</p><hr>
+</a>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3">
+<img src="gplus.jpg">
+</div>
+<div class="col-md-6">
+<a href="compose_vr.html">
+<h4>khaja</h4>
+<p>Roll no:95</p><hr>
+</a>
+</div>
+</div>
+
+</div>
+
+<div class="col-md-6">
+<div class="form-group" action="" method="post">  
+<div class="card" style="width:880px;height:800px;margin-left:-20px;">
+<div class="card-title" style="font-size:30px;">New Message</div>
+<div class="card-body">
+<label>From:<input type="email" name="from_mail" style="border:0px; width:700px;">
+</label><hr>
+<label>To:    
+<input type="email" name="to_email"  style="border:0px;width:700px;">
+</label><hr>
+<label>Subject:
+<input type="text" name="subject" style="border:0px;width:700px;">
+</label><hr>
+<textarea id="demo"  name="message" rows="20" style="height:400px;width:830px;">    </textarea>
+<a href="" class="btn btn-primary" style="margin-top:10px;height:40px;width:100px;"><i class="fas fa-paper-plane" style="width:30px;"></i>Send</a>
+<div class="btn btn-default" onclick="startconvert();"><i class="fas fa-microphone-alt" style="font-size:20px;"></i></div>
+<a href="" class="btn btn-default"><i class="fas fa-link" style="font-size:20px;"></i></a>
+<a href="" class="btn btn-default"><i class="fas fa-paperclip" style="font-size:20px;"></i></a>
+<a href="" class="btn btn-default"><i class="far fa-images" style="font-size:20px;"></i></a>
+<a href="" class="btn btn-default"><i class="fab fa-google-drive" style="font-size:20px;"></i></a>
+<a href="" class="btn btn-default"><i class="far fa-smile-wink" style="font-size:20px;"></i></a>
+</div>
+</div>
+</div>
+          
+<script> 
+function startconvert(){
+ if('webkitSpeechRecognition' in window){
+    var speechrec=new webkitSpeechRecognition();
+	speechrec.interimResults=true;
+	speechrec.continuous=true;
+	speechrec.lang='en-IN';
+	speechrec.start();
+	
+	var finalTranscripts=' ',interimTranscripts=' ';
+	speechrec.onresult= function(event){
+		
+		  interimTranscripts="";
+          for(var i=event.resultIndex;i<event.results.length;i++){
+		  	        var res=event.results[i][0].transcript;
+					//res.splice(1,res.length);
+					if(event.results[i].isFinal) 
+					       finalTranscripts+=res;
+				   else
+				          interimTranscripts+=res;
+		  }
+		  var msg=new SpeechSynthesisUtterance(finalTranscripts);
+		  document.getElementById("demo").innerHTML=finalTranscripts+interimTranscripts;
+		  msg.lang="en-IN";
+		  msg.rate=1;
+		  msg.pitch=10;
+		  //window.speechSynthesis.speak(msg);
+	}
+	speechrec.onerror=function(event){
+		 document.write("your browser doesnt this functionality<br>");
+	}
+	}
+	else {
+		document.write("your browser doesnt support this functionality");
+	}
+	}
+</script>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
